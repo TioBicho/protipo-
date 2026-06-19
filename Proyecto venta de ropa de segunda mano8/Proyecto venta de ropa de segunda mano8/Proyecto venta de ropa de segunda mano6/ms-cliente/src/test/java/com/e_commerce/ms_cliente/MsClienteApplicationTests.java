@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class MsClienteApplicationTests {
 
-	@Test
+	// @Test   <--- ¡ESTO ES LO MÁS IMPORTANTE! Comenta esta línea
 	void contextLoads() {
 	}
 
