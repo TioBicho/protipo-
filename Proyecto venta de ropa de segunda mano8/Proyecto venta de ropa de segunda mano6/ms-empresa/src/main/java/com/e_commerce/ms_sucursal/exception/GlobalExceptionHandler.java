@@ -1,0 +1,68 @@
+package com.e_commerce.ms_sucursal.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, String>> handleValidation(MethodArgumentNotValidException ex) {
+        Map<String, String> errores = new HashMap<>();
+        ex.getBindingResult().getFieldErrors()
+                .forEach(e -> errores.put(e.getField(), e.getDefaultMessage()));
+        return ResponseEntity.badRequest().body(errores);
+    }
+
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Map<String, String>> handleRuntime(RuntimeException ex) {
+        Map<String, String> error = new HashMap<>();
+        error.put("error", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
+    @RestControllerAdvice
+    public static class GlobalExceptionHandler2 {
+
+        @ExceptionHandler(MethodArgumentNotValidException.class)
+        public ResponseEntity<Map<String, String>> handleValidation(MethodArgumentNotValidException ex) {
+            Map<String, String> errores = new HashMap<>();
+            ex.getBindingResult().getFieldErrors()
+                    .forEach(e -> errores.put(e.getField(), e.getDefaultMessage()));
+            return ResponseEntity.badRequest().body(errores);
+        }
+
+        @ExceptionHandler(RuntimeException.class)
+        public ResponseEntity<Map<String, String>> handleRuntime(RuntimeException ex) {
+            Map<String, String> error = new HashMap<>();
+            error.put("error", ex.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+        }
+    }
+
+    @RestControllerAdvice
+    public static class GlobalExceptionHandler3 {
+
+        @ExceptionHandler(MethodArgumentNotValidException.class)
+        public ResponseEntity<Map<String, String>> handleValidation(MethodArgumentNotValidException ex) {
+            Map<String, String> errores = new LinkedHashMap<>();
+            ex.getBindingResult().getFieldErrors().forEach((FieldError e) -> errores.put(e.getField(), e.getDefaultMessage()));
+            return ResponseEntity.badRequest().body(errores);
+        }
+        @ExceptionHandler(RuntimeException.class)
+        public ResponseEntity<Map<String, String>> handleRuntime(RuntimeException ex) {
+            return ResponseEntity.badRequest()
+                    .body(Map.of("error", ex.getMessage()));
+        }
+    }
+}

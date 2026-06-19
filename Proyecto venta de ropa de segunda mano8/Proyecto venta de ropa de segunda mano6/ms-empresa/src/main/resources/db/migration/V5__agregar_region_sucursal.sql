@@ -1,0 +1,1 @@
+ALTER TABLE sucursal ADD region_id_region NUMBER(8);

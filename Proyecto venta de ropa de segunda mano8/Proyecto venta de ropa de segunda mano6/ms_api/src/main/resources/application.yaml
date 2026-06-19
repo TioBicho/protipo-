@@ -1,0 +1,71 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: ms-api
+  cloud:
+    gateway:
+      routes:
+        - id: ruta-usuarios
+          uri: lb://ms-cliente
+          predicates:
+            - Path=/api/usuarios/**
+
+        - id: ruta-perfiles
+          uri: lb://ms-cliente
+          predicates:
+            - Path=/api/perfiles/**
+
+        - id: ruta-clientes
+          uri: lb://ms-cliente
+          predicates:
+            - Path=/api/clientes/**
+
+        - id: ruta-categorias
+          uri: lb://ms-inventario
+          predicates:
+            - Path=/api/categorias/**
+
+        - id: ruta-prendas
+          uri: lb://ms-inventario
+          predicates:
+            - Path=/api/prendas/**
+
+        - id: ruta-stock
+          uri: lb://ms-inventario
+          predicates:
+            - Path=/api/stock/**
+
+        - id: ruta-detalleventas
+          uri: lb://ms-ventas
+          predicates:
+            - Path=/api/detalleventas/**
+
+        - id: ruta-empleados
+          uri: lb://ms-empresa
+          predicates:
+            - Path=/api/empleados/**
+
+        - id: ruta-nominas
+          uri: lb://ms-empresa
+          predicates:
+            - Path=/api/nominas/**
+
+        - id: ruta-sucursal
+          uri: lb://ms-empresa
+          predicates:
+            - Path=/api/sucursal/**
+        - id: ruta-envios
+          uri: lb://ms-envios
+          predicates:
+            - Path=/api/envios/**
+        - id: ruta-regiones
+          uri: lb://ms-envios
+          predicates:
+            - Path=/api/regiones/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-eureka:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
