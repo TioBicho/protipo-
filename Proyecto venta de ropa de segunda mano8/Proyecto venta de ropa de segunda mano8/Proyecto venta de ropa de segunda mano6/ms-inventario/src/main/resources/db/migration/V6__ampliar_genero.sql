@@ -1,0 +1,1 @@
+ALTER TABLE tipo_ropa MODIFY genero VARCHAR2(15);

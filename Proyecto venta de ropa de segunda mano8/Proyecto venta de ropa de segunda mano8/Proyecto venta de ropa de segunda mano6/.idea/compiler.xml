@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Annotation profile for ms_api" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="ms-cliente" />
+        <module name="ms_eureka" />
+        <module name="ms-ventas" />
+        <module name="ms-inventario" />
+        <module name="ms-empresa" />
+      </profile>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ms_api" />
+      </profile>
+      <profile name="Annotation profile for ms-envios" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="ms-envios" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ms-categorias" target="21" />
+      <module name="ms-detalleventas" target="21" />
+      <module name="ms-empleados" target="21" />
+      <module name="ms-nominas" target="21" />
+      <module name="ms-perfil" target="21" />
+      <module name="ms-prendas" target="21" />
+      <module name="ms-regiones" target="21" />
+      <module name="ms-stock" target="21" />
+      <module name="ms-tipocliente" target="21" />
+      <module name="ms-tiporopa" target="21" />
+      <module name="ms-usuarios" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ms-categorias" options="-parameters" />
+      <module name="ms-cliente" options="-parameters" />
+      <module name="ms-detalleventas" options="-parameters" />
+      <module name="ms-empleados" options="-parameters" />
+      <module name="ms-empresa" options="-parameters" />
+      <module name="ms-envios" options="-parameters" />
+      <module name="ms-inventario" options="-parameters" />
+      <module name="ms-nominas" options="-parameters" />
+      <module name="ms-perfil" options="-parameters" />
+      <module name="ms-prendas" options="-parameters" />
+      <module name="ms-regiones" options="-parameters" />
+      <module name="ms-stock" options="-parameters" />
+      <module name="ms-tipocliente" options="-parameters" />
+      <module name="ms-tiporopa" options="-parameters" />
+      <module name="ms-usuarios" options="-parameters" />
+      <module name="ms-ventas" options="-parameters" />
+      <module name="ms_api" options="-parameters" />
+      <module name="ms_eureka" options="-parameters" />
+    </option>
+  </component>
+</project>
