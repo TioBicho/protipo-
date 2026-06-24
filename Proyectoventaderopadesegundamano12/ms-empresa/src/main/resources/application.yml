@@ -1,0 +1,48 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: ms-empresa
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@wave6mvvwt38qrkd_high?TNS_ADMIN=/opt/oracle/wallet
+    username: ADMIN
+    password: FullStack-001
+    hikari:
+      maximum-pool-size: 2
+
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.OracleDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    baseline-version: 0
+    schemas: ADMIN
+    default-schema: ADMIN
+    out-of-order: true
+    url: jdbc:oracle:thin:@wave6mvvwt38qrkd_high?TNS_ADMIN=/opt/oracle/wallet
+    user: ADMIN
+    password: FullStack-001
+    table: flyway_schema_history_empresa
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-eureka:8761/eureka/
+  instance:
+    status-page-url: http://localhost:8089/swagger-ui/index.html
+logging:
+  level:
+    org:
+      flywaydb: DEBUG
